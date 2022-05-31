@@ -1,5 +1,5 @@
-const baseURL = "";
-
+const baseURL = "http://localhost:3000/countries";
+const countryList = document.getElementById("list");
 let idCounter = 1;
 let currentId = 1;
 
@@ -13,9 +13,7 @@ function initCountries() {
     fetch(baseURL)
     .then(resp => resp.json())
     .then(countries => {
-        for (let country of countries) {
-            addCountry(country);
-        }
+       addCountries(countries);
     })
 }
 
@@ -29,18 +27,32 @@ function initForm() {
 }
 
 //new function to put countries on screen
-function addCountries(country) {
-    let div = document.createElement('div');
-    div.textContent = char.name;
-    //.appendChild(div); 
-    span.id = idCounter;
-    span.addEventListener('click', (e)=> {
-        displayCountry(e.target.id)
-    })
-    idCounter++;
+function addCountries(countries) {
+    
+    countries.forEach((country) => {
+        let div = document.createElement('div');
+        let card = document.createElement('card');
+        let p = document.createElement('p');
+        div.textContent = country.name.common;
+        //console.log(country.name.common);
+        //console.log(country.flag);
+        p.textContent = "[\ud83c][\udde6][\ud83c][\uddfc]"; 
+        //p.textContent = `${country.flag}`; 
+        p.id = idCounter;
+        div.id = idCounter;
+        card.appendChild(p);
+        card.appendChild(div);
+        countryList.appendChild(card);
+
+        // div.addEventListener('click', (e)=> {
+        //     displayCountry(e.target.id)
+        // })
+        idCounter++;
+    });
 }
 
 function displayCountry(id) {
+    //need a default
     fetch(baseURL + "/" + id)
     .then(resp => resp.json())
     .then(country => {
