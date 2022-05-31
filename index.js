@@ -52,6 +52,7 @@ function addCountries(countries) {
 }
 
 function displayCountry(id) {
+    //need a default
     fetch(baseURL + "/" + id)
     .then(resp => resp.json())
     .then(country => {
