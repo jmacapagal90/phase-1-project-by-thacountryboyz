@@ -9,4 +9,7 @@
 
 This is the README for our Project File 
 
-Wireframe: https://www.figma.com/file/MIpOO3dEaEb4dltNWbbplw/Phase-1-Project-Wire?node-id=0%3A1
+Wireframe: 
+
+![image](https://user-images.githubusercontent.com/30418526/171284599-a6f545a8-29c7-4c3d-be95-01ce3a697dcf.png)
+
