@@ -2,6 +2,10 @@ const baseURL = "http://localhost:3000/countries";
 const countryList = document.getElementById("list");
 let idCounter = 1;
 let currentId = 1;
+const displayFlag = document.getElementById('main-flag')
+const displayName = document.getElementById('country-name')
+const displayCapital = document.getElementById('capital')
+const displayLanguages = document.getElementById('languages')
 
 document.addEventListener("DOMContentLoaded", () => {
     //this will contain all our initilization functions -> setting up event listeners for form, buttons, etc.
@@ -36,19 +40,32 @@ function addCountries(countries) {
         div.textContent = country.name.common;
         console.log(country.name.common);
         console.log(country.flag);
-        p.textContent = country.flag; 
+        p.textContent = country.flag;
         p.id = idCounter;
         div.id = idCounter;
         card.appendChild(p);
         card.appendChild(div);
         countryList.appendChild(card);
 
-        // div.addEventListener('click', (e)=> {
-        //     displayCountry(e.target.id)
-        // })
+        card.addEventListener('click', (e)=> {
+            e.preventDefault()
+            displayName.innerText = country.name.common
+            displayCapital.innerText = country.capital
+            displayLanguages.innerText = country.languages[0] //this will need to be fixed
+            displayFlag.textContent = country.flag
+        })
         idCounter++;
     });
 }
+
+// card.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     mainImage.src = game.image
+//     mainTitle.innerText = game.name
+//     highScore.innerText = game.high_score
+// })
+// })
+// }
 
 function displayCountry(id) {
     //need a default
