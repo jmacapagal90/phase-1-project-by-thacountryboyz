@@ -1,7 +1,8 @@
 const baseURL = "http://localhost:3000/countries";
 const countryList = document.getElementById("list");
 const searchBar = document.getElementById('search-box');
-const displaySection = document.getElementById('display')
+const divDisplay = document.getElementById('container')
+
 // let idCounter = 1;
 // let currentId = 1;
 // const displayFlag = document.getElementById('main-flag')
@@ -40,43 +41,51 @@ function addCountries(countries) {
     countries.forEach((country) => {
         let card = document.createElement('card');
         let div = document.createElement('div');
-        let p = document.createElement('p');
+        let flagEmoji = document.createElement('h1');
+        flagEmoji.id = 'flag-emoji'
         div.textContent = country.name.common;
-        p.textContent = country.flag;
+        flagEmoji.textContent = country.flag;
         //p.id = idCounter;
         //div.id = idCounter;
-        card.appendChild(p);
+        card.appendChild(flagEmoji);
         card.appendChild(div);
         countryList.appendChild(card);
 
         card.addEventListener('click', (e)=> {
             e.preventDefault()
-            removeAllChildNodes(displaySection)
+            removeAllChildNodes(divDisplay)
             //adjusting values from db
             let dLanguages = `${Object.values(country.languages)}`
             let newLanguages = dLanguages.replace(/,/g, ', ')
             //creating new elements every click
-            let divMain = document.createElement('div')
-            let pFlag = document.createElement('p')
+            let displaySection = document.createElement('section') 
+            let divFlag = document.createElement('div')
+            let divInfo = document.createElement('div')
+            let mainFlag = document.createElement('h1')
             let countryName = document.createElement('h3')
             let capitalName = document.createElement('h3')
             let languageNames = document.createElement('h3')
             //set ids for CSS styling
+            displaySection.id = 'display'
+            mainFlag.id = 'main-flag'
             countryName.id = "country-name"
             capitalName.id = "capital"
             languageNames.id = "languages"
-            divMain.id = 'main-info'
+            divInfo.id = 'main-info'
             //put inner text
             countryName.innerText = `Country: ${country.name.common}`
             capitalName.innerText = `Capital: ${country.capital}`
             languageNames.innerText = `Native Language(s): ${newLanguages}`
-            pFlag.textContent = country.flag
+            mainFlag.textContent = country.flag
             //append everrything
-            divMain.appendChild(pFlag)
-            divMain.appendChild(countryName)
-            divMain.appendChild(capitalName)
-            divMain.appendChild(languageNames)
-            displaySection.appendChild(divMain)
+            divFlag.appendChild(mainFlag)
+            divInfo.appendChild(countryName)
+            divInfo.appendChild(capitalName)
+            divInfo.appendChild(languageNames)
+            displaySection.appendChild(divFlag)
+            displaySection.appendChild(divInfo)
+            divDisplay.appendChild(displaySection)
+            console.log(divDisplay)
         })
         //idCounter++;
     });
