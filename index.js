@@ -34,10 +34,9 @@ function addCountries(countries) {
         let card = document.createElement('card');
         let p = document.createElement('p');
         div.textContent = country.name.common;
-        //console.log(country.name.common);
-        //console.log(country.flag);
-        p.textContent = "[\ud83c][\udde6][\ud83c][\uddfc]"; 
-        //p.textContent = `${country.flag}`; 
+        console.log(country.name.common);
+        console.log(country.flag);
+        p.textContent = country.flag; 
         p.id = idCounter;
         div.id = idCounter;
         card.appendChild(p);
