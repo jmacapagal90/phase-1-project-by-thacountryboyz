@@ -1,8 +1,8 @@
 const baseURL = "http://localhost:3000/countries";
 const countryList = document.getElementById("list");
 const searchBar = document.getElementById('search-box');
-// let idCounter = 1;
-// let currentId = 1;
+let idCounter = 1;
+let currentId = 1;
 const displayFlag = document.getElementById('main-flag')
 const displayName = document.getElementById('country-name')
 const displayCapital = document.getElementById('capital')
@@ -37,13 +37,13 @@ function initSearchBar() {
 //new function to put countries on screen
 function addCountries(countries) {
     countries.forEach((country) => {
-        let card = document.createElement('card');
         let div = document.createElement('div');
+        let card = document.createElement('card');
         let p = document.createElement('p');
         div.textContent = country.name.common;
         p.textContent = country.flag;
-        //p.id = idCounter;
-        //div.id = idCounter;
+        p.id = idCounter;
+        div.id = idCounter;
         card.appendChild(p);
         card.appendChild(div);
         countryList.appendChild(card);
@@ -57,7 +57,7 @@ function addCountries(countries) {
             displayLanguages.innerText = `Native Language(s): ${newLanguages}`
             displayFlag.textContent = country.flag
         })
-        //idCounter++;
+        idCounter++;
     });
 }
 
@@ -78,14 +78,16 @@ function search(input) {
     fetch(baseURL)
     .then(resp => resp.json())
     .then(countries => {
-        let country = countries.find((country) => country["name"]["common"].toUpperCase() === input.toUpperCase());
-        if(country === undefined) {
-            alert("That's not a country. Please check your spelling.");
+        for(let country of countries)
+            //console.log(country.name.common);
+            if (country["name"]["common"].toUpperCase() === input.toUpperCase()){
+                //displayCountry(country["name"])
+                let dLanguages = `${Object.values(country.languages)}`
+                let newLanguages = dLanguages.replace(/,/g, ', ')
+                displayName.innerText = `Country: ${country.name.common}`
+                displayCapital.innerText = `Capital: ${country.capital}`
+                displayLanguages.innerText = `Native Language(s): ${newLanguages}`
+                displayFlag.textContent =  `${country.flag}`
+            }
         }
-        let dLanguages = `${Object.values(country.languages)}`;
-        let newLanguages = dLanguages.replace(/,/g, ', ');
-        displayName.innerText = `Country: ${country.name.common}`;
-        displayCapital.innerText = `Capital: ${country.capital}`;
-        displayLanguages.innerText = `Native Language(s): ${newLanguages}`;
-        displayFlag.textContent =  `${country.flag}`;
-    })}
+)}
