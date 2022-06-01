@@ -67,6 +67,7 @@ function addCountries(countries) {
             let languageNames = document.createElement('h3')
             //set ids for CSS styling
             displaySection.id = 'display'
+            divFlag.id = 'div-flag'
             mainFlag.id = 'main-flag'
             countryName.id = "country-name"
             capitalName.id = "capital"
@@ -124,4 +125,6 @@ function search(input) {
         displayCapital.innerText = `Capital: ${country.capital}`;
         displayLanguages.innerText = `Native Language(s): ${newLanguages}`;
         displayFlag.textContent =  `${country.flag}`;
+
+        
     })}

@@ -36,18 +36,40 @@ card {
   margin: 0;
 }
 
+
+
+#div-flag, #main-info {
+  display: inline-block
+}
+
+#div-flag {
+  padding: 0;
+  margin: 0;
+}
+
+#main-info {
+  text-align: center;
+  flex:auto;
+  float:right;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+  justify-content: center;
+}
+
 #main-flag {
+  float: left;
   font-size: 200px;
   padding: 0;
   margin: 0;
 }
 
 #display {
-  margin: auto;
-  padding: auto;
   background-color: beige;
   border-color: black;
   border-style: dashed;
+  margin: 40px;
+  display: block;
 }
 
 
@@ -63,12 +85,7 @@ button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#main-info {
-  text-align: center;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 20px;
-}
+
 
 button {
   cursor: pointer;
