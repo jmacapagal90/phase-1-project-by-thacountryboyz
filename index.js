@@ -51,17 +51,22 @@ function addCountries(countries) {
 
         card.addEventListener('click', (e)=> {
             e.preventDefault()
+            removeAllChildNodes(displaySection)
+            //adjusting values from db
             let dLanguages = `${Object.values(country.languages)}`
             let newLanguages = dLanguages.replace(/,/g, ', ')
+            //creating new elements every click
             let divMain = document.createElement('div')
             let pFlag = document.createElement('p')
             let countryName = document.createElement('h3')
             let capitalName = document.createElement('h3')
             let languageNames = document.createElement('h3')
+            //set ids for CSS styling
             countryName.id = "country-name"
             capitalName.id = "capital"
             languageNames.id = "languages"
             divMain.id = 'main-info'
+            //put inner text
             countryName.innerText = `Country: ${country.name.common}`
             capitalName.innerText = `Capital: ${country.capital}`
             languageNames.innerText = `Native Language(s): ${newLanguages}`
@@ -75,6 +80,12 @@ function addCountries(countries) {
         })
         //idCounter++;
     });
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 function displayCountry(id) {
