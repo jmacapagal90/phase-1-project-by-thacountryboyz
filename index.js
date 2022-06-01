@@ -1,12 +1,13 @@
 const baseURL = "http://localhost:3000/countries";
 const countryList = document.getElementById("list");
 const searchBar = document.getElementById('search-box');
+const displaySection = document.getElementById('display')
 // let idCounter = 1;
 // let currentId = 1;
-const displayFlag = document.getElementById('main-flag')
-const displayName = document.getElementById('country-name')
-const displayCapital = document.getElementById('capital')
-const displayLanguages = document.getElementById('languages')
+// const displayFlag = document.getElementById('main-flag')
+// const displayName = document.getElementById('country-name')
+// const displayCapital = document.getElementById('capital')
+// const displayLanguages = document.getElementById('languages')
 //let USACounter;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -52,10 +53,25 @@ function addCountries(countries) {
             e.preventDefault()
             let dLanguages = `${Object.values(country.languages)}`
             let newLanguages = dLanguages.replace(/,/g, ', ')
-            displayName.innerText = `Country: ${country.name.common}`
-            displayCapital.innerText = `Capital: ${country.capital}`
-            displayLanguages.innerText = `Native Language(s): ${newLanguages}`
-            displayFlag.textContent = country.flag
+            let divMain = document.createElement('div')
+            let pFlag = document.createElement('p')
+            let countryName = document.createElement('h3')
+            let capitalName = document.createElement('h3')
+            let languageNames = document.createElement('h3')
+            countryName.id = "country-name"
+            capitalName.id = "capital"
+            languageNames.id = "languages"
+            divMain.id = 'main-info'
+            countryName.innerText = `Country: ${country.name.common}`
+            capitalName.innerText = `Capital: ${country.capital}`
+            languageNames.innerText = `Native Language(s): ${newLanguages}`
+            pFlag.textContent = country.flag
+            //append everrything
+            divMain.appendChild(pFlag)
+            divMain.appendChild(countryName)
+            divMain.appendChild(capitalName)
+            divMain.appendChild(languageNames)
+            displaySection.appendChild(divMain)
         })
         //idCounter++;
     });

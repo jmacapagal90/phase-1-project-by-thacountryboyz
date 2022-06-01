@@ -25,15 +25,30 @@ card {
   cursor: pointer;
 }
 
-#main-info, #main-flag {
-  text-align: center;
-  font-size: 25px;
+#main-flag{
+  size: 100px;
+}
+
+#main-info{
+  margin: auto;
+  padding: auto;
+  background-color: beige;
+  border-color: black;
+  border-style: groove;
+}
+
+input {
+  border-radius: 5px;
+}
+
+button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-p {
-  font-size: 25px;
+#main-info {
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
