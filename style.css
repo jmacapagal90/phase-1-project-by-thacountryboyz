@@ -25,6 +25,17 @@ card {
   cursor: pointer;
 }
 
+#main-info, #main-flag {
+  text-align: center;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+p {
+  font-size: 25px;
+}
+
 button {
   cursor: pointer;
 }
