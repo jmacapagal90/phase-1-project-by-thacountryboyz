@@ -8,14 +8,21 @@ let countryToAdd = {};
 let currentFilter = "name";
 const tropicLat = 24;
 const searchInput = document.getElementById('submission')
+let travelArr = []
+let beenArr = []
+let travelButton = document.getElementById('travel')
+let beenButton = document.getElementById('been')
+let listDiv = document.getElementById('lists')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
     initCountries();
     initSearchBar();
     initDropDown();
+    // travelList();
     //search("Angola", "asdf", "Honduras");
     search(currentFilter, "United States");
+    
 })
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function initCountries() {
@@ -182,6 +189,8 @@ async function displayCountry(country) {
         let countryName = document.createElement('h3');
         let capitalName = document.createElement('h3');
         let languageNames = document.createElement('h3');
+        let buttonTravel = document.createElement('button');
+        let buttonBeen = document.createElement('button');
         //adding additional info just cuz
         let regions = document.createElement("h3");
         let area = document.createElement("h3");
@@ -202,6 +211,8 @@ async function displayCountry(country) {
         regions.innerText = `Region/Subregion: ${country.region}/${country.subregion}`;
         area.innerText = `Size (sq km): ${country.area}`;
         mainFlag.textContent = country.flag;
+        buttonTravel.innerText = "I wanna go there!"
+        buttonBeen.innerText = "I've been there!"
         //append everrything
         divFlag.appendChild(mainFlag);
         divInfo.appendChild(countryName);
@@ -209,10 +220,15 @@ async function displayCountry(country) {
         divInfo.appendChild(languageNames);
         divInfo.appendChild(area);
         divInfo.appendChild(regions);
+        divInfo.appendChild(buttonTravel);
+        divInfo.appendChild(buttonBeen);
         displaySection.appendChild(divFlag);
         displaySection.appendChild(divInfo);
         divDisplay.appendChild(displaySection);
         currentFilter = "name";
+        //button functions
+        travel(buttonTravel, country)
+        been(buttonBeen, country)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function search(category, ...input) {
@@ -222,3 +238,61 @@ async function search(category, ...input) {
         displayCountry(countriesArr[i])}
     countriesArr.splice(0, countriesArr.length);
 }
+
+function travel (button, country) {
+    button.addEventListener('click', () => {
+        travelArr.push(country)
+        // listCreator(travelArr)
+    })
+}
+
+function been (button, country) {
+    button.addEventListener('click', () => {
+        beenArr.push(country)
+        console.log(beenArr)
+    })
+}
+
+// function travelList () {
+//     travelButton.addEventListener('click', listCreator(travelArr))
+// }
+
+// function listCreator(array) {
+//     const ul = document.createElement('ul')
+//     let li = document.createElement('li')
+//     array.forEach(country => {
+//         li.innerText = `${country.name.common}`
+//         ul.appendChild(li)
+//         listDiv.appendChild(ul)
+//         console.log(array)
+//     })
+// }
+
+
+  
+
+
+// async function dreamDestination () {
+//     travelButton.addEventListener('click', async () => {
+//         await search("name", travelArr)
+//     })
+// }
+
+
+
+
+// function handleToDo (todo){
+//     const ul = document.getElementById("tasks")
+//     let li  = document.createElement("li")
+//     let btn = document.createElement('button')
+//     btn.addEventListener('click',handleDelete)
+//     btn.textContent = "x"
+//     li.textContent = `${todo} `
+//     li.appendChild(btn)
+//     ul.appendChild(li)
+//   }
+  
+//   function handleDelete(e){
+//     e.target.parentNode.remove()
+//   }
+

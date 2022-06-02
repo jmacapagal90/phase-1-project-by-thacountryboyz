@@ -43,6 +43,7 @@ card {
   width: 60%;
   height:60%;
   padding: 10px;
+  text-align: center;
 }
 
 #div-flag, #main-info {
