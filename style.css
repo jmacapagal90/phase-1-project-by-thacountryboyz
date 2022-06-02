@@ -1,43 +1,21 @@
+/* Main Body */
 body {
     background-color: #BBCEFF;
 }
-
+/* H-tags */
 h1 {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 100px;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
 }
-
-#search {
-  text-align: center;
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-card {
-  background-color: beige;
-  border: black;
-  border-style: dotted;
-  border-width: 2px;
-  text-align: center;
-  inline-size: 150px;
-  overflow-wrap: break-word;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flexbox;
-  cursor: pointer;
-  padding: 5px;
-  margin: 5px;
-}
-
-#flag-emoji {
-  text-align: center;
-  font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
+/* Main Display */
 #container {
   margin: auto;
   width: 60%;
@@ -46,6 +24,29 @@ card {
   text-align: center;
 }
 
+/* Search Div */
+#search {
+  text-align: center;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Search Box */
+#search-box{
+  padding: 20px;
+}
+/* Search Box Input */
+input {
+  border-radius: 10px;
+}
+
+
+/* All Button */
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+/* Main Display */
 #div-flag, #main-info {
   display: inline-block;
   padding: 0;
@@ -79,19 +80,41 @@ card {
 }
 
 
+/* Country Card */
 
-#search-box{
-  padding: 20px;
-}
-
-input {
-  border-radius: 10px;
-}
-
-button {
+card {
+  background-color: beige;
+  border: black;
+  border-style: dotted;
+  border-width: 2px;
+  text-align: center;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  display: flexbox;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
 }
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#flag-emoji {
+  text-align: center;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+
 
 #list {
     display: grid;
@@ -100,13 +123,7 @@ button {
     padding: 10px;
   }
   
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
+/** Filter Search Button Dropdown **/
 
 .dropbtn {
   background-color: #04AA6D;
