@@ -8,6 +8,8 @@ h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 100px;
   font-style: italic;
+  text-decoration-color: #04AA6D;
+  text-decoration: wavy;
 }
 
 h2 {
@@ -15,6 +17,7 @@ h2 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
 }
+
 /* Main Display */
 #container {
   margin: auto;
@@ -40,6 +43,7 @@ input {
   font-size: 25px;
   font-style: italic;
   text-align: center;
+  background-color: beige;
 }
 
 /* Search Button */
