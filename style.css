@@ -36,8 +36,6 @@ card {
   margin: 0;
 }
 
-
-
 #div-flag, #main-info {
   display: inline-block
 }
@@ -69,25 +67,19 @@ card {
   border-color: black;
   border-style: dashed;
   margin: 40px;
-  display: block;
+  display: inline-block;
 }
-
 
 #search-box{
   padding: 20px;
 }
 
 input {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 button {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-button {
   cursor: pointer;
 }
 
@@ -105,3 +97,45 @@ button {
     font-size: 30px;
     text-align: center;
   }
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* hidden by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  /*z-index: 1;*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e50;}
+
+
