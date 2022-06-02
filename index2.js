@@ -253,7 +253,6 @@ function listCreator(array) {
         li.innerText = `${country.name.common}`
         ul.appendChild(li)
         listDiv.appendChild(ul)
-        console.log(array)
     })
 }
 
@@ -264,7 +263,6 @@ function beenListCreator(array) {
         li2.innerText = `${country.name.common}`
         ul2.appendChild(li2)
         beenListDiv.appendChild(ul2)
-        console.log(array)
     })
 }
 
