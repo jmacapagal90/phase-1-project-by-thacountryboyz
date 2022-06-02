@@ -36,8 +36,6 @@ card {
   margin: 0;
 }
 
-
-
 #div-flag, #main-info {
   display: inline-block
 }
@@ -69,9 +67,8 @@ card {
   border-color: black;
   border-style: dashed;
   margin: 40px;
-  display: block;
+  display: inline-block;
 }
-
 
 #search-box{
   padding: 20px;
@@ -83,11 +80,6 @@ input {
 
 button {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-button {
   cursor: pointer;
 }
 
