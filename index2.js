@@ -276,31 +276,3 @@ function beenListCreator(array) {
     })
 }
 
-
-  
-
-
-// async function dreamDestination () {
-//     travelButton.addEventListener('click', async () => {
-//         await search("name", travelArr)
-//     })
-// }
-
-
-
-
-// function handleToDo (todo){
-//     const ul = document.getElementById("tasks")
-//     let li  = document.createElement("li")
-//     let btn = document.createElement('button')
-//     btn.addEventListener('click',handleDelete)
-//     btn.textContent = "x"
-//     li.textContent = `${todo} `
-//     li.appendChild(btn)
-//     ul.appendChild(li)
-//   }
-  
-//   function handleDelete(e){
-//     e.target.parentNode.remove()
-//   }
-
