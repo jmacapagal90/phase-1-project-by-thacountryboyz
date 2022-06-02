@@ -1,26 +1,33 @@
 
 /* H-tags */
-h1 {
+#title {
+  color: darkolivegreen;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 100px;
+  background-color: beige;
+  border-color: gray;
+  border-style: dotted;
   font-style: italic;
+  background-color: beige;
+  border-radius: 200px;
 }
 
-h2 {
+#subtitle {
+  color: darkolivegreen;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
+  background-color: beige;
+  border-color: gray;
+  border-style: dotted;
+  font-style: italic;
+  background-color: beige;
+  display: inline-block;
+  border-radius: 200px;
 }
 
-/* Main Display */
-#container {
-  margin: auto;
-  width: 60%;
-  height:60%;
-  padding: 10px;
-  text-align: center;
-}
+
 
 /* Search Div */
 #search {
@@ -59,6 +66,7 @@ button {
   color: white;
   padding: 10px;
   margin: 5px;
+  border-radius: 10px;
 
 }
 
@@ -78,6 +86,15 @@ button {
 }
 
 /* Main Display */
+#container {
+  color: rgb(99, 99, 99);
+  margin: auto;
+  width: 60%;
+  height:60%;
+  padding: 10px;
+  text-align: center;
+}
+
 #div-flag, #main-info {
   display: inline-block;
   padding: 0;
@@ -150,7 +167,6 @@ card {
 #list {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-    background-color: #2196F3;
     padding: 10px;
   }
   
