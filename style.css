@@ -37,13 +37,38 @@ h2 {
 /* Search Box Input */
 input {
   border-radius: 10px;
+  font-size: 25px;
 }
 
+/* Search Button */
+#submitbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+  border: none;
+}
 
-/* All Button */
+/* All Buttons */
 button {
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
+
+}
+
+/** Filter Search Button Dropdown **/
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
 /* Main Display */
@@ -114,8 +139,6 @@ card {
   margin: 0;
 }
 
-
-
 #list {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
@@ -123,20 +146,7 @@ card {
     padding: 10px;
   }
   
-/** Filter Search Button Dropdown **/
 
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
 /* hidden by default */
 .dropdown-content {
@@ -180,7 +190,7 @@ card {
 }
 
 #been-lists {
-  float:right
+  float:right;
 }
 
 
