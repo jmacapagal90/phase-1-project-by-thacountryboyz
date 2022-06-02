@@ -26,6 +26,8 @@ card {
   font-family: Arial, Helvetica, sans-serif;
   display: flexbox;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
 }
 
 #flag-emoji {
