@@ -12,7 +12,8 @@ let travelArr = []
 let beenArr = []
 let travelButton = document.getElementById('travel')
 let beenButton = document.getElementById('been')
-let listDiv = document.getElementById('lists')
+let listDiv = document.getElementById('travel-lists')
+let beenListDiv = document.getElementById('been-lists')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
@@ -242,31 +243,38 @@ async function search(category, ...input) {
 function travel (button, country) {
     button.addEventListener('click', () => {
         travelArr.push(country)
-        // listCreator(travelArr)
+        listCreator(travelArr)
     })
 }
 
 function been (button, country) {
     button.addEventListener('click', () => {
         beenArr.push(country)
-        console.log(beenArr)
+        beenListCreator(beenArr)
     })
 }
 
-// function travelList () {
-//     travelButton.addEventListener('click', listCreator(travelArr))
-// }
+function listCreator(array) {
+    const ul = document.createElement('ul')
+    let li = document.createElement('li')
+    array.forEach(country => {
+        li.innerText = `${country.name.common}`
+        ul.appendChild(li)
+        listDiv.appendChild(ul)
+        console.log(array)
+    })
+}
 
-// function listCreator(array) {
-//     const ul = document.createElement('ul')
-//     let li = document.createElement('li')
-//     array.forEach(country => {
-//         li.innerText = `${country.name.common}`
-//         ul.appendChild(li)
-//         listDiv.appendChild(ul)
-//         console.log(array)
-//     })
-// }
+function beenListCreator(array) {
+    const ul2 = document.createElement('ul')
+    let li2 = document.createElement('li')
+    array.forEach(country => {
+        li2.innerText = `${country.name.common}`
+        ul2.appendChild(li2)
+        beenListDiv.appendChild(ul2)
+        console.log(array)
+    })
+}
 
 
   

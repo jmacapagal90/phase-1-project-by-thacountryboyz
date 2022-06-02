@@ -148,4 +148,22 @@ button {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e50;}
 
+/* Travel and Been Lists */
+
+#travel-lists, #been-lists {
+  display: inline-block;
+  background-color: beige;
+  border-color: black;
+  border-style: dashed;
+  margin: 40px;
+}
+
+#travel-lists {
+  float: left;
+}
+
+#been-lists {
+  float:right
+}
+
 
