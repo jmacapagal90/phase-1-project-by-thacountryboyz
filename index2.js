@@ -10,19 +10,18 @@ const tropicLat = 24;
 const searchInput = document.getElementById('submission')
 let travelArr = []
 let beenArr = []
-let travelButton = document.getElementById('travel')
-let beenButton = document.getElementById('been')
-let listDiv = document.getElementById('lists')
+let dreamDestinationButton = document.getElementById('travel')
+let previousAdventureButton = document.getElementById('been')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
     initCountries();
     initSearchBar();
     initDropDown();
-    // travelList();
+    dreamDestination();
+    previousAdventure();
     //search("Angola", "asdf", "Honduras");
     search(currentFilter, "United States");
-    
 })
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function initCountries() {
@@ -69,7 +68,6 @@ function initDropDown() {
     let dropBeaches = document.getElementById("drop-beaches");
     dropBeaches.addEventListener('click', ()=> {currentFilter = "beaches";
     searchInput.setAttribute('placeholder', 'Country Name')
-    //console.log(currentFilter);
     search('beaches', 0);
     })
 }
@@ -80,11 +78,8 @@ async function makeCountriesArr(...args) {
         .then(resp => resp.json())
         .then(async (countries) => {
             let temp = Object.values(args);
-            //console.log(temp);
             let category = temp.shift();
-            //console.log(category);
             let values = Object.values(temp[0]);
-            //console.log(values);
             if (category === "languages") {
                 await languagesChecker(countries, values, category);
             }
@@ -99,12 +94,10 @@ async function makeCountriesArr(...args) {
                             countriesArr.push(country);
                         }
             }}
-            //console.log(countriesArr);
             if(countriesArr.length === 0) {
                 alert(`Apologies, there are no countries that match your query of ${values[0]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
             })
         .then(async() => {
-            //console.log(countriesArr);
             return countriesArr;
 })}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
@@ -191,7 +184,6 @@ async function displayCountry(country) {
         let languageNames = document.createElement('h3');
         let buttonTravel = document.createElement('button');
         let buttonBeen = document.createElement('button');
-        //adding additional info just cuz
         let regions = document.createElement("h3");
         let area = document.createElement("h3");
         //set ids for CSS styling
@@ -211,8 +203,8 @@ async function displayCountry(country) {
         regions.innerText = `Region/Subregion: ${country.region}/${country.subregion}`;
         area.innerText = `Size (sq km): ${country.area}`;
         mainFlag.textContent = country.flag;
-        buttonTravel.innerText = "I wanna go there!"
-        buttonBeen.innerText = "I've been there!"
+        buttonTravel.innerText = "I wanna go there!";
+        buttonBeen.innerText = "I've been there!";
         //append everrything
         divFlag.appendChild(mainFlag);
         divInfo.appendChild(countryName);
@@ -225,10 +217,9 @@ async function displayCountry(country) {
         displaySection.appendChild(divFlag);
         displaySection.appendChild(divInfo);
         divDisplay.appendChild(displaySection);
-        currentFilter = "name";
         //button functions
-        travel(buttonTravel, country)
-        been(buttonBeen, country)
+        initListButtons(buttonTravel, buttonBeen, country);
+        currentFilter = "name";
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function search(category, ...input) {
@@ -238,61 +229,42 @@ async function search(category, ...input) {
         displayCountry(countriesArr[i])}
     countriesArr.splice(0, countriesArr.length);
 }
-
-function travel (button, country) {
-    button.addEventListener('click', () => {
-        travelArr.push(country)
-        // listCreator(travelArr)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function initListButtons(button1, button2, country) {
+    button1.addEventListener('click', () => {
+        let duplicate = false;
+        for (let i = 0; i < travelArr.length; i++) {
+            if (country === travelArr[i]) {
+                duplicate = true;
+            }}
+        if(!duplicate){
+            travelArr.push(country)}
+        console.log(travelArr);
+    })
+    button2.addEventListener('click', () => {
+        let duplicate = false;
+        for (let i = 0; i < beenArr.length; i++) {
+            if (country === beenArr[i]) {
+                duplicate = true;
+            }}
+        if(!duplicate){
+            beenArr.push(country)}
+        console.log(beenArr);
     })
 }
-
-function been (button, country) {
-    button.addEventListener('click', () => {
-        beenArr.push(country)
-        console.log(beenArr)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function dreamDestination () {
+    dreamDestinationButton.addEventListener('click', () => {
+        clearNodes(divDisplay);
+        //travelArr = travelArr.sort();
+        for (let i = 0; i < travelArr.length; i++){
+            displayCountry(travelArr[i])}
     })
 }
-
-// function travelList () {
-//     travelButton.addEventListener('click', listCreator(travelArr))
-// }
-
-// function listCreator(array) {
-//     const ul = document.createElement('ul')
-//     let li = document.createElement('li')
-//     array.forEach(country => {
-//         li.innerText = `${country.name.common}`
-//         ul.appendChild(li)
-//         listDiv.appendChild(ul)
-//         console.log(array)
-//     })
-// }
-
-
-  
-
-
-// async function dreamDestination () {
-//     travelButton.addEventListener('click', async () => {
-//         await search("name", travelArr)
-//     })
-// }
-
-
-
-
-// function handleToDo (todo){
-//     const ul = document.getElementById("tasks")
-//     let li  = document.createElement("li")
-//     let btn = document.createElement('button')
-//     btn.addEventListener('click',handleDelete)
-//     btn.textContent = "x"
-//     li.textContent = `${todo} `
-//     li.appendChild(btn)
-//     ul.appendChild(li)
-//   }
-  
-//   function handleDelete(e){
-//     e.target.parentNode.remove()
-//   }
-
+function previousAdventure () {
+    previousAdventureButton.addEventListener('click', () => {
+        clearNodes(divDisplay);
+        for (let i = 0; i < beenArr.length; i++){
+            displayCountry(beenArr[i])}
+    })
+}
