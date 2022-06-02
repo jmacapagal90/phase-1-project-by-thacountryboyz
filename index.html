@@ -8,33 +8,32 @@
     <body>
         <h1>Around the World</h1>
             <section id="search">
-                <h2>Country Search</h2>
-                <div class="dropdown">
-                    <button class="dropbtn">Filter Search</button>
-                    <div class="dropdown-content">
-                      <a href="#" id="drop-name">Country Name</a>
-                      <a href="#" id="drop-language">Languages</a>
-                      <a href="#" id="drop-region">Region</a>
-                      <a href="#" id="drop-subregion">Subregion</a>
-                      <a href="#" id="drop-beaches">Beaches!</a>
-                    </div>
-                  </div>
-                
+                <h2>Choose Your Adventure!</h2>
                 <form id="search-box">
                     <input type="text" id="submission" placeholder="Country Name"/>
-                    <button type="submit">Search</button>
+                    <button type="submit" id="submitbtn">Search</button>
+                    <div class="dropdown">
+                        <button class="dropbtn">Filter Search</button>
+                        <div class="dropdown-content">
+                          <a href="#" id="drop-name">Country Name</a>
+                          <a href="#" id="drop-language">Languages</a>
+                          <a href="#" id="drop-region">Region</a>
+                          <a href="#" id="drop-subregion">Subregion</a>
+                          <a href="#" id="drop-beaches">Beaches!</a>
+                        </div>
+                      </div>
                 </form>
-                <div id="lists">
-                    <!--lists populate here-->
+                <div id="travel-lists">
+                    <h2 class="lists">Dream Destinations</h2>
+                    <!--travel lists populate here-->
                 </div>
-                <div id="travel-been">
-                    <button id="travel">Dream Destinations
-                    </button>
-                    <button id="been">Previous Adventures
-                    </button>
+                <div id="been-lists">
+                    <h2 class="lists">Previous Adventures</h2>
+                    <!--been lists populate here-->
                 </div>
             </section>
             <div id="container"></div>
+            <!-- Main Country Display Goes Here-->
             <section id="list">
                 <!--list of countries and flags go here-->
             </section>

@@ -10,8 +10,10 @@ const tropicLat = 24;
 const searchInput = document.getElementById('submission')
 let travelArr = []
 let beenArr = []
-let dreamDestinationButton = document.getElementById('travel')
-let previousAdventureButton = document.getElementById('been')
+let travelButton = document.getElementById('travel')
+let beenButton = document.getElementById('been')
+let listDiv = document.getElementById('travel-lists')
+let beenListDiv = document.getElementById('been-lists')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
@@ -229,42 +231,68 @@ async function search(category, ...input) {
         displayCountry(countriesArr[i])}
     countriesArr.splice(0, countriesArr.length);
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function initListButtons(button1, button2, country) {
-    button1.addEventListener('click', () => {
-        let duplicate = false;
-        for (let i = 0; i < travelArr.length; i++) {
-            if (country === travelArr[i]) {
-                duplicate = true;
-            }}
-        if(!duplicate){
-            travelArr.push(country)}
-        console.log(travelArr);
-    })
-    button2.addEventListener('click', () => {
-        let duplicate = false;
-        for (let i = 0; i < beenArr.length; i++) {
-            if (country === beenArr[i]) {
-                duplicate = true;
-            }}
-        if(!duplicate){
-            beenArr.push(country)}
-        console.log(beenArr);
+
+function travel (button, country) {
+    button.addEventListener('click', () => {
+        travelArr.push(country)
+        listCreator(travelArr)
     })
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function dreamDestination () {
-    dreamDestinationButton.addEventListener('click', () => {
-        clearNodes(divDisplay);
-        //travelArr = travelArr.sort();
-        for (let i = 0; i < travelArr.length; i++){
-            displayCountry(travelArr[i])}
+
+function been (button, country) {
+    button.addEventListener('click', () => {
+        beenArr.push(country)
+        beenListCreator(beenArr)
     })
 }
-function previousAdventure () {
-    previousAdventureButton.addEventListener('click', () => {
-        clearNodes(divDisplay);
-        for (let i = 0; i < beenArr.length; i++){
-            displayCountry(beenArr[i])}
+
+function listCreator(array) {
+    const ul = document.createElement('ul')
+    let li = document.createElement('li')
+    array.forEach(country => {
+        li.innerText = `${country.name.common}`
+        ul.appendChild(li)
+        listDiv.appendChild(ul)
+        console.log(array)
     })
 }
+
+function beenListCreator(array) {
+    const ul2 = document.createElement('ul')
+    let li2 = document.createElement('li')
+    array.forEach(country => {
+        li2.innerText = `${country.name.common}`
+        ul2.appendChild(li2)
+        beenListDiv.appendChild(ul2)
+        console.log(array)
+    })
+}
+
+
+  
+
+
+// async function dreamDestination () {
+//     travelButton.addEventListener('click', async () => {
+//         await search("name", travelArr)
+//     })
+// }
+
+
+
+
+// function handleToDo (todo){
+//     const ul = document.getElementById("tasks")
+//     let li  = document.createElement("li")
+//     let btn = document.createElement('button')
+//     btn.addEventListener('click',handleDelete)
+//     btn.textContent = "x"
+//     li.textContent = `${todo} `
+//     li.appendChild(btn)
+//     ul.appendChild(li)
+//   }
+  
+//   function handleDelete(e){
+//     e.target.parentNode.remove()
+//   }
+
