@@ -26,6 +26,8 @@ card {
   font-family: Arial, Helvetica, sans-serif;
   display: flexbox;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
 }
 
 #flag-emoji {
@@ -36,13 +38,26 @@ card {
   margin: 0;
 }
 
-#div-flag, #main-info {
-  display: inline-block
+#container {
+  margin: auto;
+  width: 60%;
+  height:60%;
+  padding: 10px;
 }
 
-#div-flag {
+#div-flag, #main-info {
+  display: inline-block;
   padding: 0;
   margin: 0;
+}
+
+#display {
+  background-color: beige;
+  border-color: black;
+  border-style: dashed;
+  margin: 40px;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 #main-info {
@@ -62,13 +77,7 @@ card {
   margin: 0;
 }
 
-#display {
-  background-color: beige;
-  border-color: black;
-  border-style: dashed;
-  margin: 40px;
-  display: inline-block;
-}
+
 
 #search-box{
   padding: 20px;
