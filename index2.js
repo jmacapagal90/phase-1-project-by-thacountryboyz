@@ -71,7 +71,7 @@ async function makeCountriesArr(...args) {
             let values = Object.values(temp[0]);
             //console.log(values);
             if (category === "languages") {
-                // await languagesChecker(countries, values, category);
+                await languagesChecker(countries, values, category);
             }
             else if (category === "beaches") {
                 // await letsGoToTheBeach();
@@ -110,21 +110,18 @@ for (let i = 0; i < values.length; i++) {
         else {countriesArr.push(countryToAdd)}
 }}
 
-// async function languagesChecker(countries, values, category) {
-//     for (let country of countries) {
-//         let languages = Object.values(country[category])
-//         languages.forEach((language) => {
-//             if(language === values[0])
-//             console.log(country);
-//             countriesArr.push(country)})
-//         }
-//                 //console.log(countryToAdd)}
-//             if(countryToAdd === undefined) {
-//                 alert(`Apologies, there are no countries that match your query of ${values[i]}. in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
-//             else {countriesArr.push(countryToAdd)
-//                 //console.log(countryToAdd)}
-//         }
-// }
+async function languagesChecker(countries, values, category) {
+    for (let country of countries) {
+        let languages = Object.values(country[category])
+        console.log(languages);
+        if(languages.find(lang => lang.toUpperCase() === values[0].toUpperCase())){
+            console.log(country);
+            countriesArr.push(country)}
+        }
+        if(countryToAdd === undefined) {
+                alert(`Apologies, there are no countries that match your query of ${values[i]}. in this filter. Perhaps try checking your spelling or changing to a different filter.`)
+        }
+}
 
 //async function letsGoToTheBeach(){
 // if (category === "beaches") {
@@ -211,6 +208,7 @@ async function displayCountry(country) {
         displaySection.appendChild(divFlag);
         displaySection.appendChild(divInfo);
         divDisplay.appendChild(displaySection);
+        currentFilter = "name";
 }
 
 async function search(category, ...input) {
