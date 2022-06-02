@@ -1,43 +1,24 @@
+/* Main Body */
 body {
     background-color: #BBCEFF;
 }
-
+/* H-tags */
 h1 {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 100px;
+  font-style: italic;
+  text-decoration-color: #04AA6D;
+  text-decoration: wavy;
+}
+
+h2 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
 }
 
-#search {
-  text-align: center;
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-card {
-  background-color: beige;
-  border: black;
-  border-style: dotted;
-  border-width: 2px;
-  text-align: center;
-  inline-size: 150px;
-  overflow-wrap: break-word;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flexbox;
-  cursor: pointer;
-  padding: 5px;
-  margin: 5px;
-}
-
-#flag-emoji {
-  text-align: center;
-  font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
+/* Main Display */
 #container {
   margin: auto;
   width: 60%;
@@ -46,6 +27,62 @@ card {
   text-align: center;
 }
 
+/* Search Div */
+#search {
+  text-align: center;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Search Box */
+#search-box{
+  padding: 20px;
+}
+/* Search Box Input */
+input {
+  border-radius: 10px;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+  background-color: beige;
+}
+
+/* Search Button */
+#submitbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+  border: none;
+}
+
+/* All Buttons */
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  font-size: 25px;
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+
+}
+
+/** Filter Search Button Dropdown **/
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Main Display */
 #div-flag, #main-info {
   display: inline-block;
   padding: 0;
@@ -79,18 +116,38 @@ card {
 }
 
 
+/* Country Card */
 
-#search-box{
-  padding: 20px;
-}
-
-input {
-  border-radius: 10px;
-}
-
-button {
+card {
+  background-color: beige;
+  border: black;
+  border-style: dotted;
+  border-width: 2px;
+  text-align: center;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  display: flexbox;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#flag-emoji {
+  text-align: center;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 #list {
@@ -100,26 +157,7 @@ button {
     padding: 10px;
   }
   
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
 
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
 /* hidden by default */
 .dropdown-content {
@@ -163,7 +201,7 @@ button {
 }
 
 #been-lists {
-  float:right
+  float:right;
 }
 
 
