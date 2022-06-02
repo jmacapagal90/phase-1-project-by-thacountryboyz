@@ -1,3 +1,5 @@
+///INDEX
+
 const baseURL = "http://localhost:3000/countries";
 const countryList = document.getElementById("list");
 const searchBar = document.getElementById('search-box');
