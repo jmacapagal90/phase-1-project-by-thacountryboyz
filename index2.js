@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initCountries();
     initSearchBar();
     initDropDown();
-    // travelList();
     //search("Angola", "asdf", "Honduras");
     search(currentFilter, "United States");
     
@@ -80,12 +79,9 @@ async function makeCountriesArr(...args) {
     await fetch(baseURL)
         .then(resp => resp.json())
         .then(async (countries) => {
-            let temp = Object.values(args);
-            //console.log(temp);
+            let temp = Object.values(args)
             let category = temp.shift();
-            //console.log(category);
             let values = Object.values(temp[0]);
-            //console.log(values);
             if (category === "languages") {
                 await languagesChecker(countries, values, category);
             }
@@ -100,12 +96,10 @@ async function makeCountriesArr(...args) {
                             countriesArr.push(country);
                         }
             }}
-            //console.log(countriesArr);
             if(countriesArr.length === 0) {
                 alert(`Apologies, there are no countries that match your query of ${values[0]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
             })
         .then(async() => {
-            //console.log(countriesArr);
             return countriesArr;
 })}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
@@ -113,11 +107,9 @@ async function nameChecker(countries, values, category) {
 for (let i = 0; i < values.length; i++) {
     if(typeof(values[i]) === 'object'){
             countryToAdd = countries.find((country) => country[category]["common"].toUpperCase() === values[i].toUpperCase())
-            //console.log(countryToAdd)}
         if(countryToAdd === undefined) {
             alert(`Apologies, there are no countries that match your query of ${values[i]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
         else {countriesArr.push(countryToAdd)
-            //console.log(countryToAdd)}
     }}
     else {
         countryToAdd = countries.find((country) => country[category]["common"].toUpperCase() === values[i].toUpperCase())}
@@ -228,8 +220,8 @@ async function displayCountry(country) {
         divDisplay.appendChild(displaySection);
         currentFilter = "name";
         //button functions
-        travel(buttonTravel, country)
-        been(buttonBeen, country)
+        addTravelList(buttonTravel, country)
+        addBeenList(buttonBeen, country)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function search(category, ...input) {
@@ -240,14 +232,14 @@ async function search(category, ...input) {
     countriesArr.splice(0, countriesArr.length);
 }
 
-function travel (button, country) {
+function addTravelList (button, country) {
     button.addEventListener('click', () => {
         travelArr.push(country)
         listCreator(travelArr)
     })
 }
 
-function been (button, country) {
+function addBeenList (button, country) {
     button.addEventListener('click', () => {
         beenArr.push(country)
         beenListCreator(beenArr)

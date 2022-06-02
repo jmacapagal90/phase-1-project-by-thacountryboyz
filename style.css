@@ -9,7 +9,6 @@
   border-color: gray;
   border-style: dotted;
   font-style: italic;
-  background-color: beige;
   border-radius: 200px;
 }
 
@@ -18,13 +17,8 @@
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 50px;
-  background-color: beige;
-  border-color: gray;
-  border-style: dotted;
   font-style: italic;
-  background-color: beige;
-  display: inline-block;
-  border-radius: 200px;
+
 }
 
 
@@ -34,6 +28,11 @@
   text-align: center;
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
+  border-color: gray;
+  border-style: dotted;
+  font-style: italic;
+  background-color: beige;
+  border-radius: 500px;
 }
 /* Search Box */
 #search-box{
@@ -116,7 +115,9 @@ button {
   flex:auto;
   float:right;
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  color: darkolivegreen;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 20px;
   justify-content: center;
 }
@@ -138,10 +139,12 @@ card {
   border-radius: 50px;
   border-width: 2px;
   text-align: center;
+  color: rgb(38, 49, 19);
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   inline-size: 150px;
   overflow-wrap: break-word;
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
   display: flexbox;
   cursor: pointer;
   padding: 5px;
@@ -159,7 +162,6 @@ card {
 #flag-emoji {
   text-align: center;
   font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -202,6 +204,8 @@ card {
 /* Travel and Been Lists */
 
 #travel-lists, #been-lists {
+  color: darkolivegreen;
+  text-align: center;
   display: inline-block;
   background-color: beige;
   border-color: gray;
@@ -209,7 +213,9 @@ card {
   border-radius: 50px;
   margin: 40px;
   text-align:justify;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 
 #travel-lists {
   float: left;
