@@ -1,15 +1,10 @@
-/* Main Body */
-body {
-    background-color: #BBCEFF;
-}
+
 /* H-tags */
 h1 {
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 100px;
   font-style: italic;
-  text-decoration-color: #04AA6D;
-  text-decoration: wavy;
 }
 
 h2 {
@@ -91,8 +86,9 @@ button {
 
 #display {
   background-color: beige;
-  border-color: black;
-  border-style: dashed;
+  border-color: gray;
+  border-style: dotted;
+  border-radius: 50px;
   margin: 40px;
   display: inline-block;
   box-sizing: border-box;
@@ -120,8 +116,9 @@ button {
 
 card {
   background-color: beige;
-  border: black;
+  border-color: gray;
   border-style: dotted;
+  border-radius: 50px;
   border-width: 2px;
   text-align: center;
   inline-size: 150px;
@@ -191,9 +188,11 @@ card {
 #travel-lists, #been-lists {
   display: inline-block;
   background-color: beige;
-  border-color: black;
-  border-style: dashed;
+  border-color: gray;
+  border-style: dotted;
+  border-radius: 50px;
   margin: 40px;
+  text-align:justify;
 }
 
 #travel-lists {
