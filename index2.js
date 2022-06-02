@@ -6,7 +6,8 @@ const dropDown = document.getElementById("dropdown");
 let countriesArr = [];
 let countryToAdd = {};
 let currentFilter = "name";
-
+const tropicLat = 24;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
     initCountries();
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //search("Angola", "asdf", "Honduras");
     search(currentFilter, "United States");
 })
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function initCountries() {
     //pulls data from api and calls addCountries to set up flag grid
     fetch(baseURL)
@@ -24,7 +25,7 @@ function initCountries() {
        addCountries(countries);
     })
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function initSearchBar() {
     //adds eventlistener to searchbar
     searchBar.addEventListener('submit', (e) => {
@@ -34,7 +35,7 @@ function initSearchBar() {
         e.target.reset();
     })
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function initDropDown() {
     //inits the dropdown clicks
     let dropName = document.getElementById("drop-name");
@@ -57,8 +58,9 @@ function initDropDown() {
     dropBeaches.addEventListener('click', ()=> {currentFilter = "beaches"
     //console.log(currentFilter);
     search('beaches', 0);
-})}
-
+    })
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function makeCountriesArr(...args) {
     countriesArr.splice(0, countriesArr.length);
     await fetch(baseURL)
@@ -74,7 +76,7 @@ async function makeCountriesArr(...args) {
                 await languagesChecker(countries, values, category);
             }
             else if (category === "beaches") {
-                // await letsGoToTheBeach();
+                await letsGoToTheBeach(countries);
             }
             else if (category === "name") {
                 await nameChecker(countries, values, category);
@@ -92,24 +94,24 @@ async function makeCountriesArr(...args) {
             //console.log(countriesArr);
             return countriesArr;
 })}
-    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 async function nameChecker(countries, values, category) {
 for (let i = 0; i < values.length; i++) {
     if(typeof(values[i]) === 'object'){
             countryToAdd = countries.find((country) => country[category]["common"].toUpperCase() === values[i].toUpperCase())
             //console.log(countryToAdd)}
         if(countryToAdd === undefined) {
-            alert(`Apologies, there are no countries that match your query of ${values[i]}. in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
+            alert(`Apologies, there are no countries that match your query of ${values[i]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
         else {countriesArr.push(countryToAdd)
             //console.log(countryToAdd)}
     }}
     else {
         countryToAdd = countries.find((country) => country[category]["common"].toUpperCase() === values[i].toUpperCase())}
         if(countryToAdd === undefined) {
-        alert(`Apologies, there are no countries that match your query of ${values[i]}. in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
+        alert(`Apologies, there are no countries that match your query of ${values[i]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)}
         else {countriesArr.push(countryToAdd)}
 }}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function languagesChecker(countries, values, category) {
     for (let country of countries) {
         let languages = Object.values(country[category])
@@ -119,23 +121,19 @@ async function languagesChecker(countries, values, category) {
             countriesArr.push(country)}
         }
         if(countryToAdd === undefined) {
-                alert(`Apologies, there are no countries that match your query of ${values[i]}. in this filter. Perhaps try checking your spelling or changing to a different filter.`)
+                alert(`Apologies, there are no countries that match your query of ${values[i]} in this filter. Perhaps try checking your spelling or changing to a different filter.`)
         }
 }
-
-//async function letsGoToTheBeach(){
-// if (category === "beaches") {
-//     category = "landlocked";
-//     values = [true];
-//     console.log("we changed the stuff");
-//     for (let country of countries) {
-//             if(country[category] === values[0]) {
-//                     countriesArr.push(country);
-//     }
-// }}
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async function letsGoToTheBeach(countries){
+    currentFilter = "landlocked";
+    for (let country of countries) {
+            if(!country[currentFilter]) {
+                    if(Math.abs(country["latlng"][0]) < 24){
+                    countriesArr.push(country);
+    }}
+}}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function addCountries(countries) {
     //adds grid of countries to click and adds their click event listeners
     countries.forEach((country) => {
@@ -158,14 +156,14 @@ function addCountries(countries) {
         })
     })
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function clearNodes(parent) {
     //to clear anything previously searched for when searching new stuff
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function displayCountry(country) {
         //adjusting values from db
         let dLanguages = `${Object.values(country.languages)}`;
@@ -210,7 +208,7 @@ async function displayCountry(country) {
         divDisplay.appendChild(displaySection);
         currentFilter = "name";
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 async function search(category, ...input) {
     clearNodes(divDisplay);
     await makeCountriesArr(category, input);
