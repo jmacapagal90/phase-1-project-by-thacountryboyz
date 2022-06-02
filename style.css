@@ -38,8 +38,14 @@ card {
   margin: 0;
 }
 
+#container {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
 #div-flag, #main-info {
-  display: inline-block
+  display: inline-block;
 }
 
 #div-flag {
