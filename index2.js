@@ -7,6 +7,7 @@ let countriesArr = [];
 let countryToAdd = {};
 let currentFilter = "name";
 const tropicLat = 24;
+const searchInput = document.getElementById('submission')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
@@ -40,22 +41,27 @@ function initDropDown() {
     //inits the dropdown clicks
     let dropName = document.getElementById("drop-name");
     dropName.addEventListener('click', ()=>{currentFilter = "name";
+    searchInput.setAttribute('placeholder', 'Country Name')
     console.log(currentFilter)
     })
     let dropLanguage = document.getElementById("drop-language");
     dropLanguage.addEventListener('click', ()=>{currentFilter = "languages";
+    searchInput.setAttribute('placeholder', 'Languages')
     console.log(currentFilter)
     })
     let dropRegion = document.getElementById("drop-region");
     dropRegion.addEventListener('click', ()=>{currentFilter = "region";
+    searchInput.setAttribute('placeholder', 'Region')
     console.log(currentFilter)
     })
     let dropSubRegion = document.getElementById("drop-subregion");
-    dropSubRegion.addEventListener('click', ()=>{currentFilter = "subregion"
+    dropSubRegion.addEventListener('click', ()=>{currentFilter = "subregion";
+    searchInput.setAttribute('placeholder', 'Subregion')
     console.log(currentFilter)
     })
     let dropBeaches = document.getElementById("drop-beaches");
-    dropBeaches.addEventListener('click', ()=> {currentFilter = "beaches"
+    dropBeaches.addEventListener('click', ()=> {currentFilter = "beaches";
+    searchInput.setAttribute('placeholder', 'Country Name')
     //console.log(currentFilter);
     search('beaches', 0);
     })
