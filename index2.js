@@ -10,10 +10,10 @@ const tropicLat = 24;
 const searchInput = document.getElementById('submission')
 let travelArr = []
 let beenArr = []
-let travelButton = document.getElementById('travel')
-let beenButton = document.getElementById('been')
-let listDiv = document.getElementById('travel-lists')
-let beenListDiv = document.getElementById('been-lists')
+const travelButton = document.getElementById('travel')
+const beenButton = document.getElementById('been')
+const listDiv = document.getElementById('travel-lists')
+const beenListDiv = document.getElementById('been-lists')
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     //call all the init functions to set everything into motion
@@ -280,3 +280,23 @@ function beenListCreator(array) {
     })
 }
 
+function dreamDestination () {
+    let ddBtn = document.getElementById("dreamDest");
+    if(listDiv.style.display === "inline-block") {
+        listDiv.style.display = "none";
+        ddBtn.innerText = "Show Dream Destinations";
+    } else {
+    listDiv.style.display = "inline-block";
+    ddBtn.innerText = "Hide Dream Destinations";
+    }
+}
+function previousAdventure () {
+    let pABtn = document.getElementById("prevAd");
+    if(beenListDiv.style.display === "inline-block") {
+        beenListDiv.style.display = "none";
+        pABtn.innerText = "Show Previous Adventures";
+    } else {
+    beenListDiv.style.display = "inline-block";
+    pABtn.innerText = "Hide Previous Adventures";
+    }
+}
