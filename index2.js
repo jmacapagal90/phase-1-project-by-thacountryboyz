@@ -227,20 +227,37 @@ async function search(category, ...input) {
         displayCountry(countriesArr[i])}
     countriesArr.splice(0, countriesArr.length);
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function addTravelList (button, country) {
     button.addEventListener('click', () => {
-        travelArr.push(country)
-        listCreator(travelArr)
-    })
-}
-
+        let duplicate = false;
+        for (let i = 0; i < travelArr.length; i++) {
+            if (country === travelArr[i]) {
+                duplicate = true;
+            }
+        }
+            if(!duplicate){
+                travelArr.push(country)
+                listCreator(travelArr)
+        }
+    }
+)}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function addBeenList (button, country) {
     button.addEventListener('click', () => {
-        beenArr.push(country)
-        beenListCreator(beenArr)
-    })
-}
+        let duplicate = false;
+        for (let i = 0; i < beenArr.length; i++) {
+            if (country === beenArr[i]) {
+                duplicate = true;
+            }
+        }
+            if(!duplicate){
+                beenArr.push(country)
+                beenListCreator(beenArr)
+        }
+    }
+)}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function listCreator(array) {
     const ul = document.createElement('ul')
@@ -251,6 +268,7 @@ function listCreator(array) {
         listDiv.appendChild(ul)
     })
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function beenListCreator(array) {
     const ul2 = document.createElement('ul')
